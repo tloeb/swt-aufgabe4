@@ -5,13 +5,29 @@ import java.math.BigDecimal;
 public class ProductAdapterString implements Product {
 
 	private ProduktMitStringId prod;
+	private int id;
 
 	// throws IllegalArgumentException { }
 	public ProductAdapterString(ProduktMitStringId prod)
 			throws IllegalArgumentException {
 		
 		boolean magic = true;
+		
+		for (ProduktMitStringId iterable_element : prod.getProdukte()) {
+			//berechnen
+			// wenn eindeutig magic = true ;
+		}
 		if (magic) { // magic working
+			
+			int prüfsumme = 0;
+			
+			
+			;
+			
+		/**
+		 * mit der liste alle nummer berechnen 
+		 * falls doppelt --> fuck mueller's mom
+		 */
 			this.prod = prod;
 		} else {
 			throw new IllegalArgumentException();
@@ -21,7 +37,7 @@ public class ProductAdapterString implements Product {
 	@Override
 	public Integer getId() {
 		// TODO String ---> to Int
-		return null;
+		return id;
 	}
 
 	@Override
