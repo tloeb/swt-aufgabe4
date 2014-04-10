@@ -4,4 +4,4 @@ tmp/**/*
 *.tmp
 *.bak
 *.swp
-
+.classpath

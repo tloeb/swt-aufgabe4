@@ -4,12 +4,12 @@ public class Helper {
 	
 	public int berechnen() {
 		boolean magic = true;
-		int prüfsumme = 0;
+		int pruefsumme = 0;
 		if (magic) { // magic working
 			
-			return prüfsumme;
+			return pruefsumme;
 		} else {
-			return prüfsumme;
+			return pruefsumme;
 		}
 	}
 }
