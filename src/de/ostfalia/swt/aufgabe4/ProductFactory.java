@@ -5,20 +5,21 @@ import java.util.List;
 public abstract class ProductFactory {
 
 	/**
-	 *  Das Property 'product-factory' definiert den zu verwendenden Klassennamen  
+	 * Das Property 'product-factory' definiert den zu verwendenden Klassennamen
 	 */
 	public static ProductFactory newInstance() {
-		String productfactory = "";
-		if ( productfactory == "SID") {
-			return new ProductFactoryString();
-		} else if (productfactory == "EAN") {
-			return new ProductFactoryEAN();
+		String factoryType = System.getProperty("product-factory");
+		Class<ProductFactoryEAN> ean = ProductFactoryEAN.class;
+		Class<ProductFactoryString> sid = ProductFactoryString.class;
+		if (factoryType == ean.getName()) {
+			return ProductFactoryEAN.newInstance();
+		} else if (factoryType == sid.getName()) {
+			return ProductFactoryString.newInstance();
 		} else {
 			return null;
 		}
-		// hier kommt Ihr Code rein
 	}
-	
+
 	public abstract List<Product> getProducts();
 
 }
