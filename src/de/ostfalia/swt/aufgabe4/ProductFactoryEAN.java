@@ -1,5 +1,13 @@
 package de.ostfalia.swt.aufgabe4;
 
-public class ProductFactoryEAN {
+import java.util.List;
+
+public class ProductFactoryEAN extends ProductFactory {
+
+	@Override
+	public List<Product> getProducts() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }
