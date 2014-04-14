@@ -4,8 +4,7 @@ import java.util.List;
 
 public class ProductFactoryString extends ProductFactory {
 
-	private ProductFactoryString() {
-	}
+//	
 
 	public static ProductFactoryString newInstance() {
 		return new ProductFactoryString();

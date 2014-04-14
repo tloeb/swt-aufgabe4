@@ -4,8 +4,6 @@ import java.util.List;
 
 public class ProductFactoryEAN extends ProductFactory {
 
-	private ProductFactoryEAN() {
-	}
 
 	public static ProductFactoryEAN newInstance() {
 		return new ProductFactoryEAN();

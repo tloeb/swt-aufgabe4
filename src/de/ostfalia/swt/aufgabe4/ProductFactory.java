@@ -4,20 +4,26 @@ import java.util.List;
 
 public abstract class ProductFactory {
 
+	// Ich wette man kann den ServiceLoader dafuer benutzen....
 	/**
 	 * Das Property 'product-factory' definiert den zu verwendenden Klassennamen
 	 */
 	public static ProductFactory newInstance() {
-		String factoryType = System.getProperty("product-factory");
-		Class<ProductFactoryEAN> ean = ProductFactoryEAN.class;
-		Class<ProductFactoryString> sid = ProductFactoryString.class;
-		if (factoryType == ean.getName()) {
-			return ProductFactoryEAN.newInstance();
-		} else if (factoryType == sid.getName()) {
-			return ProductFactoryString.newInstance();
-		} else {
+		try {
+			String factoryType = System.getProperty("product-factory");
+			if(factoryType != null) {
+				Class<?> productClass = Class.forName(factoryType);
+				return (ProductFactory)productClass.newInstance();	
+			} else {
+				return null;
+			}
+			
+		} catch (NullPointerException |ClassNotFoundException | InstantiationException | IllegalAccessException e) {
+			
+			e.printStackTrace();
 			return null;
 		}
+		
 	}
 
 	public abstract List<Product> getProducts();

@@ -34,6 +34,7 @@ public class ProductFactoryTest {
 		
 		for (String factoryType : factories) {
 			System.setProperty("product-factory", factoryType);
+			System.out.println(factoryType);
 			factory = ProductFactory.newInstance();
 			String factoryName = factory.getClass().getName();
 			assertEquals("The Factory should be " + factoryType + "it was "
