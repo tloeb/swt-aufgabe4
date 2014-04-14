@@ -1,5 +1,6 @@
 package de.ostfalia.swt.aufgabe4;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ProductFactoryString extends ProductFactory {
@@ -12,8 +13,16 @@ public class ProductFactoryString extends ProductFactory {
 
 	@Override
 	public List<Product> getProducts() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Product> products = new ArrayList<Product>();
+		List<ProduktMitStringId> stringProducts = ProduktMitStringId.getProdukte();
+		for (ProduktMitStringId produktString : stringProducts) {
+			try {
+				products.add(new ProductAdapterString(produktString));
+			} catch (Exception e) {
+			}
+			
+		}
+		return products;
 	}
 
 }

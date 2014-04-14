@@ -10,7 +10,11 @@ public class ProductAdapterString implements Product {
 	public ProductAdapterString(ProduktMitStringId prod)
 			throws IllegalArgumentException {
 
-		Integer i = prod.getId()!= null ? Integer.getInteger(prod.getId()) : null;
+		Integer i = null;
+		try {
+			i = prod.getId()!= null ? Integer.parseInt(prod.getId()) : null;
+		} catch (Exception e) {
+		}
 
 	    if (i == null || i == 0) {
 	        throw new IllegalArgumentException();

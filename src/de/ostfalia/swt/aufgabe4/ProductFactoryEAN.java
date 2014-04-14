@@ -1,5 +1,6 @@
 package de.ostfalia.swt.aufgabe4;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ProductFactoryEAN extends ProductFactory {
@@ -11,8 +12,16 @@ public class ProductFactoryEAN extends ProductFactory {
 
 	@Override
 	public List<Product> getProducts() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Product> products = new ArrayList<Product>();
+		List<ProduktMitEAN> eanProducts = ProduktMitEAN.getProdukte();
+		for (ProduktMitEAN produktMitEAN : eanProducts) {
+			try {
+				products.add(new ProductAdapterEAN(produktMitEAN));
+			} catch (Exception e) {
+			}
+			
+		}
+		return products;
 	}
 
 }
