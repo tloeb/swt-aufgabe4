@@ -5,25 +5,23 @@ import java.math.BigDecimal;
 public class ProductAdapterEAN implements Product {
 
 	private ProduktMitEAN prod;
+	private int id;
 
 	public ProductAdapterEAN(ProduktMitEAN prod)
 			throws IllegalArgumentException {
 
-		boolean magic = true;
-		if (magic) { // magic working
-			this.prod = prod;
-		} else {
-			throw new IllegalArgumentException();
-		}
-
+		Integer i = prod.getEan()!= null ? prod.getEan().intValue() : null;
+	    if (i == null || i == 0) {
+	        throw new IllegalArgumentException();
+	    } else {
+	    	this.id = i;
+	    	this.prod = prod;
+	    }
 	}
 
 	@Override
 	public Integer getId() {
-		// TODO Auto-generated method stub
-
-		// Long ---> to Int
-		return null;
+		return id;
 	}
 
 	@Override
